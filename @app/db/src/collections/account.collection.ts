@@ -79,9 +79,9 @@ export namespace AccountCollection {
         passwordSalt: string;
         profilePicureFile?: string;
         remoteProfilePictureUrl?: string;
-        birthday: string;
-        gender: string;
-        phoneNumber: string;
+        // birthday: string;
+        // gender: string;
+        // phoneNumber: string;
     }
 
     export class AccountDbo implements Omit<Record<string>, 'passwordHash' | 'passwordSalt'> {
@@ -103,14 +103,14 @@ export namespace AccountCollection {
         @ApiProperty()
         remoteProfilePictureUrl?: string;
 
-        @ApiProperty()
-        phoneNumber!: string;
+        // @ApiProperty()
+        // phoneNumber!: string;
 
-        @ApiProperty()
-        birthday!: string;
+        // @ApiProperty()
+        // birthday!: string;
 
-        @ApiProperty()
-        gender!: string;
+        // @ApiProperty()
+        // gender!: string;
 
         @ApiProperty()
         createdOn: Date;
@@ -122,9 +122,9 @@ export namespace AccountCollection {
             this.nickname = record.nickname;
             this.profilePicureFile = record.profilePicureFile;
             this.remoteProfilePictureUrl = record.remoteProfilePictureUrl;
-            this.birthday = record.birthday;
-            this.gender = record.gender;
-            this.birthday = record.birthday;
+            // this.birthday = record.birthday;
+            // this.gender = record.gender;
+            // this.birthday = record.birthday;
             this.createdOn = record.createdOn;
         }
     }

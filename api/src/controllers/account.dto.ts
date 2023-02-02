@@ -5,19 +5,7 @@ import { IsEmail, IsNotEmpty, MinLength, IsOptional } from 'class-validator';
 export class CreateAccountRequest {
     @ApiProperty()
     @IsNotEmpty()
-    readonly birthday!: string;
-
-    @ApiProperty()
-    @IsNotEmpty()
     readonly nickname!: string;
-
-    @ApiProperty()
-    @IsNotEmpty()
-    readonly phoneNumber!: string;
-
-    @ApiProperty()
-    @IsNotEmpty()
-    readonly gender!: string;
 
     @ApiProperty()
     @IsNotEmpty()

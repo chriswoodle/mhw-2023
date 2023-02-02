@@ -58,7 +58,7 @@ export class AccountController {
     @ApiOperation({ summary: 'Create account' })
     @ApiOkResponse({ description: 'Create account.', type: dto.CreateAccountResponse })
     async createAccount(@Body() body: dto.CreateAccountRequest): Promise<dto.CreateAccountResponse> {
-        const { password, email, birthday, nickname, gender, phoneNumber } = body;
+        const { password, email, nickname } = body;
 
         const existingAccount = await this.accountCollection.getByEmail(email);
         if (existingAccount) {
@@ -69,9 +69,6 @@ export class AccountController {
 
         const params: Parameters<Collections.AccountCollection['insertOne']> = [{
             email,
-            birthday,
-            gender,
-            phoneNumber,
             nickname,
             passwordHash: await Password.hashPassword(password, salt),
             passwordSalt: salt,

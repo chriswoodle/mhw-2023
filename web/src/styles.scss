@@ -1,0 +1,31 @@
+input {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border: solid 2px transparent;
+
+    color: #762dc4;
+    outline: none;
+
+    &:focus {
+        border: solid 2px rgba(#762dc4, 10%)
+    }
+}
+
+label {
+    color: #b8b5ff;
+}
+
+
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-image: linear-gradient(#ae59e4, #7a30c6);
+    color: white;
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+    }
+}

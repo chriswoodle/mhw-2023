@@ -2,6 +2,7 @@ import * as VueRouter from 'vue-router';
 
 import Welcome from './welcome/Welcome.vue';
 import Login from './welcome/Login.vue';
+import Signup from './welcome/Signup.vue';
 
 import Main from './main/Main.vue';
 import Home from './main/Home.vue';
@@ -11,6 +12,7 @@ import { authGuard, unauthGuard } from './common/auth';
 export enum RouteNames {
     Home = 'home',
     Login = 'Login',
+    Signup = 'Signup',
 }
 
 const routes: VueRouter.RouteRecordRaw[] = [
@@ -20,6 +22,7 @@ const routes: VueRouter.RouteRecordRaw[] = [
         beforeEnter: unauthGuard,
         children: [
             { path: '/', component: Login, name: RouteNames.Login },
+            { path: 'signup', component: Signup, name: RouteNames.Signup },
         ]
     },
     {

@@ -1,56 +1,58 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { RouteNames } from '../router';
+import { useAuth } from '../common/auth';
+
+const router = useRouter();
+
+const { login } = useAuth();
+
+const username = ref('');
+const password = ref('');
+
+async function beginLogin() {
+    try {
+        await login(username.value, password.value);
+        router.replace({ name: RouteNames.Home })
+    } catch (error) {
+        console.log(error);
+    }
+}
+</script>
+
 <template>
-    <h2>Login</h2>
-    <div class="login-form">
-        <div>
-            <input type="text" v-model="username" />
-            <input type="password" v-model="password" />
-            <button @click="beginLogin()">Submit</button>
+    <div>
+        <div class="login-form">
+            <div>
+                <label for="username">Email</label>
+                <input type="text" name="username" v-model="username" />
+                <label for="password">Password</label>
+                <input type="password" name="password" v-model="password" />
+                <button @click="beginLogin()">Login</button>
+            </div>
         </div>
     </div>
 </template>
-
-<script lang="ts">
-import * as client from '@app/client';
-import { defineComponent } from 'vue'
-import { RouteNames } from '../router';
-
-import { useAuth } from '../common/auth'
-export default defineComponent({
-    name: 'Login',
-    data() {
-        return {
-            username: '',
-            password: ''
-        }
-    },
-    setup() {
-        const { login } = useAuth();
-        return { login };
-    },
-    async created() {
-
-    },
-    methods: {
-        async beginLogin() {
-            try {
-                await this.login(this.username, this.password);
-                this.$router.replace({ name: RouteNames.Home })
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
-})
-</script>
 
 <style lang='scss' scoped>
 .login-form {
     display: flex;
     justify-content: center;
-    > div {
+    text-align: left;
+
+    >div {
         display: flex;
         flex-direction: column;
         max-width: 200px;
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
     }
 }
 </style>

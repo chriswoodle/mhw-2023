@@ -1,4 +1,5 @@
-# NestJS + Vue 3 Monorepo
+# SpotShot
+
 
 
 ## Setup
