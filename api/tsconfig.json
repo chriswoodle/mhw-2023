@@ -1,0 +1,27 @@
+{
+    "extends": "../config/tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./src",
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "srcold",
+        "**/old"
+    ],
+    "references": [
+        {
+            "path": "../@app/db"
+        },
+        {
+            "path": "../@app/cache"
+        },
+        {
+            "path": "../@app/auth"
+        },
+        {
+            "path": "../@app/logging"
+        }
+    ]
+}

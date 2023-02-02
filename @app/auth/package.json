@@ -1,0 +1,38 @@
+{
+    "name": "@app/auth",
+    "version": "0.0.1",
+    "private": true,
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "yarn pnpify tsc -b -v",
+        "clean": "yarn pnpify tsc -b --clean",
+        "trace": "yarn pnpify tsc --traceResolution"
+    },
+    "dependencies": {
+        "@app/logging": "workspace:*",
+        "envsafe": "*",
+        "jsonwebtoken": "^8.5.1",
+        "mongodb": "*"
+    },
+    "devDependencies": {
+        "@app/cache": "workspace:*",
+        "@nestjs/common": "^9.2.0",
+        "@nestjs/core": "^9.2.0",
+        "@nestjs/swagger": "*",
+        "@types/express": "*",
+        "@types/jsonwebtoken": "^8.5.9",
+        "@types/node": "*",
+        "@yarnpkg/pnpify": "*",
+        "rxjs": "*",
+        "typescript": "*"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^9.2.0",
+        "@nestjs/core": "^9.2.0",
+        "@nestjs/swagger": "*",
+        "mongodb": "*",
+        "reflect-metadata": "*",
+        "rxjs": "*"
+    }
+}
