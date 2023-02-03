@@ -10,14 +10,20 @@ import HelloWorld from '../components/HelloWorld.vue';
 import Plus from '../assets/plus.svg'
 import Redeem from '../assets/redeem.svg'
 import BalloonImage from '../assets/balloon.jpg'
+import Place1Image from '../assets/place1.jpg'
+import Place2Image from '../assets/place2.jpg'
+
+import Person1Image from '../assets/person1.jpg'
+import Person2Image from '../assets/person2.jpg'
+import Person3Image from '../assets/person3.jpg'
+
 
 const router = useRouter();
 const { logout } = useAuth();
 
 async function authLogout() {
-    logout();
+    await logout();
     router.replace({ name: RouteNames.Login })
-
 }
 
 
@@ -25,17 +31,34 @@ const posts = [
     {
         tokens: 75,
         image: BalloonImage,
-        profile: '',
+        profile: Person1Image,
         title: 'Dream Balloon Rides',
         profileName: 'Noah Martin',
         favorited: 16,
         redeemed: 7
+    },
+    {
+        tokens: 60,
+        image: Place1Image,
+        profile: Person2Image,
+        title: 'Cozmo Coffee',
+        profileName: 'Jack Millier',
+        favorited: 6,
+        redeemed: 8
+    },
+    {
+        tokens: 100,
+        image: Place2Image,
+        profile: Person3Image,
+        title: 'Bakeology',
+        profileName: 'Amelia Garcia',
+        favorited: 10,
+        redeemed: 3
     }
 ]
 
 </script>
 <template>
-    <h2>Home</h2>
     <div>
         <div class="post" v-for="post in posts">
             <div class="left">
@@ -44,7 +67,7 @@ const posts = [
             </div>
             <div class="right">
                 <div class="poster">
-                    <div><img :src="post.image"/></div>
+                    <div><img :src="post.profile"/></div>
                     <div>{{ post.profileName }}</div>
                 </div>
                 <div class="title">
