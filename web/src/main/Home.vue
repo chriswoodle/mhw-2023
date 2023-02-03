@@ -15,6 +15,7 @@ const router = useRouter();
 const { logout } = useAuth();
 
 async function authLogout() {
+    logout();
     router.replace({ name: RouteNames.Login })
 
 }
